@@ -121,9 +121,43 @@
 		</div>
 	</div>
 </header><!-- header close -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .article {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .article img {
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+        .article h2 {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        .article p {
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+        .date {
+            font-style: italic;
+            margin-top: 10px;
+        }
+        .note {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+    </style>
 
-<h1>Members</h1>
-<ul>
+
 {% block title %}Article index{% endblock %}
 
 {% block body %}
@@ -145,18 +179,19 @@
             <tbody>
                 {% for article in articles %}
                     <tr>
-                        <td>{{ article.id }}</td>
-                        <td>{{ article.titre }}</td>
-                        <td>{{ article.contenu }}</td>
-                        <td>{{ article.date ? article.date|date('Y-m-d H:i:s') : '' }}</td>
-                        <td>{{ article.note }}</td>
-                        <td>{{ article.image }}</td>
-                        <td>
+							<div class="article">
+							<img src="{{ article.image }}" alt="Description de l'image">
+							<h2>{{ article.titre }}</h2>
+							<p>{{ article.contenu }}</p>
+							<div class="date">{{ article.date ? article.date|date('Y-m-d H:i:s') : '' }}</div>
+							<div class="note">{{ article.note }}</div>
+
                             <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
                             {% if is_granted('POST_EDIT', article) %}
                                 <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a>
                             {% endif %}
-                        </td>
+
+						</div>
                     </tr>
                 {% endfor %}
             </tbody>
@@ -166,6 +201,8 @@
     {% endif %}
 
     <a href="{{ path('app_article_new') }}">Create new</a>
+
+
 {% endblock %}
 </ul>
 
