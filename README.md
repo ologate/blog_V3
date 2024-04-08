@@ -1,32 +1,66 @@
-# Titre du projet
-_(juste en dessous des badges sympatiques à placer)_
+---
+runme:
+  id: 01HTY8G03JE7J3PZRGHBNKWMCH
+  version: v3
+---
 
-[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)  [![forthebadge](http://forthebadge.com/images/badges/powered-by-electricity.svg)](http://forthebadge.com)
+# Blog lycée fulbert
 
-Une petite description du projet
+Le Lycée Fulbert vise à encourager l'apprentissage continu et la collaboration entre ses élèves en fournissant une plateforme où ils peuvent partager leurs connaissances et leurs expériences en informatique.
 
-## Pour commencer
-
-Entrez ici les instructions pour bien débuter avec votre projet...
+En tant qu'étudiant en BTS SIO effectuant un projet au sein du Lycée Fulbert, je suis chargé de développer une plateforme de partage de connaissances en informatique pour les élèves. Mon blog serait un élément central de cette plateforme, offrant aux élèves un espace où ils peuvent publier des articles, des tutoriels, des projets, etc., pour enrichir l'apprentissage mutuel et favoriser une culture de collaboration.
 
 ### Pré-requis
 
-Ce qu'il est requis pour commencer avec votre projet...
+Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur votre système :
 
-- Programme 1
-- Programme 2
-- etc...
+- PHP
+- Composer
+- Symfony CLI
 
 ### Installation
 
-Les étapes pour installer votre programme....
+1. Clonez ce dépôt sur votre machine :
 
-Dites ce qu'il faut faire...
+```sh {"id":"01HTYEME90HE8NQ66Q8BWDZYRX"}
+git clone https://github.com/ologate/blog_V3.git
+```
 
-_exemple_: Executez la commande ``telnet mapscii.me`` pour commencer ensuite [...]
+2. Installez les dépendances 
 
+```sh {"id":"01HTYEP56H82MCPR15WDJQ03JR"}
+composer install
+```
 
-Ensuite vous pouvez montrer ce que vous obtenez au final...
+3. Lancer le serveur :
+
+```sh {"id":"01HTYEQ8J840V101XS8W083PYR"}
+symfony server:start
+```
+
+4. Créer la base de données :
+
+```sh {"id":"01HTYERYC8NG8DQ79JJJ2G6XD9"}
+php bin/console make:migration 
+```
+
+5. Créer les tables :
+
+```sh {"id":"01HTYEVHTZHAEYTQ0K9DSC2S7M"}
+ php bin/console doctrine:migrations:migrate
+```
+
+6. Charger les données de test :
+
+```sh {"id":"01HTYEWBSZFCBCPBYXC0JX11N7"}
+php bin/console doctrine:fixtures:load
+```
+
+7. Ouvrez votre navigateur.
+
+```sh {"id":"01HTYEWZ1F5MPWNA1A1CC9QV8V"}
+symfony open:local
+```
 
 ## Démarrage
 
@@ -37,6 +71,7 @@ Dites comment faire pour lancer votre projet
 Entrez les programmes/logiciels/ressources que vous avez utilisé pour développer votre projet
 
 _exemples :_
+
 * [Materialize.css](http://materializecss.com) - Framework CSS (front-end)
 * [Atom](https://atom.io/) - Editeur de textes
 
@@ -45,23 +80,30 @@ _exemples :_
 Si vous souhaitez contribuer, lisez le fichier [CONTRIBUTING.md](https://example.org) pour savoir comment le faire.
 
 ## Versions
-Listez les versions ici 
+
+```sh {"id":"01HTY8RCQPGEP038WRK04Y1R63"}
+
+```
+
+Listez les versions ici
 _exemple :_
-**Dernière version stable :** 5.0
-**Dernière version :** 5.1
+__Dernière version stable :__ 5.0
+__Dernière version :__ 5.1
 Liste des versions : [Cliquer pour afficher](https://github.com/your/project-name/tags)
-_(pour le lien mettez simplement l'URL de votre projets suivi de ``/tags``)_
+_(pour le lien mettez simplement l'URL de votre projets suivi de `/tags`)_
 
 ## Auteurs
+
 Listez le(s) auteur(s) du projet ici !
-* **Jhon doe** _alias_ [@outout14](https://github.com/outout14)
+
+* __Jhon doe__ _alias_ [@outout14](https://github.com/outout14)
 
 Lisez la liste des [contributeurs](https://github.com/your/project/contributors) pour voir qui à aidé au projet !
 
-_(pour le lien mettez simplement l'URL de votre projet suivi de ``/contirubors``)_
+_(pour le lien mettez simplement l'URL de votre projet suivi de `/contirubors`)_
 
 ## License
 
-Ce projet est sous licence ``exemple: WTFTPL`` - voir le fichier [LICENSE.md](LICENSE.md) pour plus d'informations
+Ce projet est sous licence `exemple: WTFTPL` - voir le fichier [LICENSE.md](LICENSE.md) pour plus d'informations
 
 
