@@ -62,6 +62,12 @@ php bin/console doctrine:fixtures:load
 symfony open:local
 ```
 
+## Use case
+
+![Alt text](<Copy of UML use case diagram example(1).png>)
+
+## ULM
+
 ## Démarrage
 
 Dites comment faire pour lancer votre projet
