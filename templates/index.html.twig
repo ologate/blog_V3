@@ -63,17 +63,17 @@
 								<a class="nav-link" href="{{path('app_index')}}">Home</a>
 							</li>
 							<li class="nav-item dropdown @@portfolio">
-								<a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Portfolio <span class="ion-ios-arrow-down"></span></a>
+								<a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Article<span class="ion-ios-arrow-down"></span></a>
 								<ul class="dropdown-menu" aria-labelledby="dropdown03">
 									<li><a class="dropdown-item @@portfolioFilter" href="{{path('app_article_index')}}">Portfolio Filter</a></li>
-									<li><a class="dropdown-item @@portfolioSingle" href="{{path('app_utilisateur_new')}}">Portfolio Single</a></li>
+									<li><a class="dropdown-item @@portfolioSingle" href="{{path('app_utilisateur_new')}}">Utilisateur</a></li>
 
 									<li class="dropdown dropdown-submenu dropright">
 										<a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301" role="button"
 											data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
 
 										<ul class="dropdown-menu" aria-labelledby="dropdown0301">
-											<li><a class="dropdown-item" href="{{path('app_categorie_index')}}">Submenu 01</a></li>
+											<li><a class="dropdown-item" href="{{path('app_categorie_index')}}">Categorie</a></li>
 											<li><a class="dropdown-item" href="index.html">Submenu 02</a></li>
 										</ul>
 									</li>
@@ -84,7 +84,7 @@
 								<a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true"
 									aria-expanded="false">Blog <span class="ion-ios-arrow-down"></span></a>
 								<ul class="dropdown-menu" aria-labelledby="dropdown05">
-									<li><a class="dropdown-item @@blogGrid" href="blog-grid.html">Blog Grid</a></li>
+									<li><a class="dropdown-item @@blogGrid" href="{{path('app_login')}}">Blog Grid</a></li>
 									<li><a class="dropdown-item @@blogSingle" href="blog-single.html">Blog Single</a></li>
 									<li><a class="dropdown-item @@blogRS" href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
 									<li><a class="dropdown-item @@blogLS" href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
@@ -270,6 +270,7 @@
 		</div>
 	</div>
 </section>
+
 
 <!-- Content Start -->
 <section class="testimonial">

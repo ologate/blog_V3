@@ -14,9 +14,42 @@ En tant qu'étudiant en BTS SIO effectuant un projet au sein du Lycée Fulbert, 
 
 Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur votre système :
 
-- PHP
-- Composer
+- PHP 8.2
+- Composer 2.5.8
 - Symfony CLI
+- vagrant 
+
+### VM Vagrant 
+
+Utiliser la VM debian/bullseye64 
+
+```sh {"id":"01HVGX5GF3S9GF940YTRF3K5QX"}
+vagrant init debian/bullseye64
+vagrant up
+vagrant ssh
+```
+
+Apache2
+
+```sh {"id":"01HVGXZFP1ZYB3QSP43S3ES331"}
+sudo apt update
+sudo apt install apache2
+sudo systemctl status apache2 
+sudo apt install curl
+```
+
+BDD mariadb
+
+```sh {"id":"01HVGY1EE64TGFNS2YHXDWJAE0"}
+su -  # mdp:vagrant
+apt install mariadb-server mariadb-client -y
+mysql
+CREATE USER 'paul'@'%' IDENTIFIED BY 'paul';
+GRANT ALL PRIVILEGES ON * . * TO 'paul'@'%';
+FLUSH PRIVILEGES
+CREATE DATABSE blog;
+exit
+```
 
 ### Installation
 
@@ -26,7 +59,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
 git clone https://github.com/ologate/blog_V3.git
 ```
 
-2. Installez les dépendances 
+2. Installez les dépendances
 
 ```sh {"id":"01HTYEP56H82MCPR15WDJQ03JR"}
 composer install
@@ -64,7 +97,7 @@ symfony open:local
 
 ## Use case
 
-![Alt text](<Copy of UML use case diagram example(1).png>)
+![Alt text](Copy of UML use case diagram example(1).png)
 
 ## ULM
 

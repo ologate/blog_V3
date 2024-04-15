@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>projet Details</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>projet Details</h1>
+    <div id="projet-details"></div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const projetData = JSON.parse(decodeURIComponent(urlParams.get('projet')));
+      displayprojetDetails(projetData);
+    });
+
+    function displayprojetDetails(projet) {
+      let html = `
+        <div class="card">
+          <img src="${projet.owner.avatar_url}" class="card-img-top" alt="${projet.name}">
+          <div class="card-body">
+            <h5 class="card-title">${projet.name}</h5>
+            <p class="card-text">${projet.description}</p>
+            <a href="${projet.html_url}" class="btn btn-primary">View on GitHub</a>
+          </div>
+        </div>
+      `;
+      document.getElementById('projet-details').innerHTML = html;
+    }
+  </script>
+</body>
+</html>

@@ -3,3 +3,13 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+# config/routes.yaml
+app_avis_new:
+    path: /avis/new/{articleId}
+    controller: App\Controller\AvisController::new
+    methods: ['GET', 'POST']
+
+projet_details:
+    path: /projet_details/{projet}
+    controller: App\Controller\ProjetController::details

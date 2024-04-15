@@ -10,8 +10,6 @@ use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
-
-
 #[ApiResource]
 class Article
 {
@@ -43,10 +41,12 @@ class Article
     private Collection $Categorie;
 
     #[ORM\OneToMany(mappedBy: 'soumettre', targetEntity: Avis::class)]
-    private Collection $Avis;
+    private Collection $avis;
 
     private $slug;
     private $title;
+
+    private $createdAt;
 
     public function getTitle(): ?string
     {
@@ -68,7 +68,7 @@ class Article
     public function __construct()
     {
         $this->Categorie = new ArrayCollection();
-        $this->Avis = new ArrayCollection();
+        $this->avis = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -177,31 +177,45 @@ class Article
      */
     public function getAvis(): Collection
     {
-        return $this->Avis;
+        return $this->avis;
     }
 
-    public function addAvi(Avis $avi): static
+    public function addAvis(Avis $avis): static
     {
-        if (!$this->Avis->contains($avi)) {
-            $this->Avis->add($avi);
-            $avi->setSoumettre($this);
+        if (!$this->avis->contains($avis)) {
+            $this->avis->add($avis);
+            $avis->setSoumettre($this);
         }
 
         return $this;
     }
 
-    public function removeAvi(Avis $avi): static
+    public function removeAvis(Avis $avis): static
     {
-        if ($this->Avis->removeElement($avi)) {
+        if ($this->avis->removeElement($avis)) {
             // set the owning side to null (unless already changed)
-            if ($avi->getSoumettre() === $this) {
-                $avi->setSoumettre(null);
+            if ($avis->getSoumettre() === $this) {
+                $avis->setSoumettre(null);
             }
         }
 
         return $this;
     }
-    
 
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
 
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->contenu; 
+    }
 }

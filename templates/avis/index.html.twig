@@ -1,20 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AvisController!{% endblock %}
+{% block title %}Avis index{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h1>Avis index</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Commentaire</th>
+                <th>Note</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for avi in avis %}
+            <tr>
+                <td>{{ avi.id }}</td>
+                <td>{{ avi.commentaire }}</td>
+                <td>{{ avi.note }}</td>
+                <td>
+                    <a href="{{ path('app_avis_show', {'id': avi.id}) }}">show</a>
+                    <a href="{{ path('app_avis_edit', {'id': avi.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+    {# Vérifiez si articleId est disponible #}
+    {% if articleId is defined %}
+        <a href="{{ path('app_avis_new', {'articleId': articleId}) }}">Add new review</a>
+    {% else %}
+        {# Gérer le cas où articleId est manquant #}
+        <p>Unable to generate URL for new review. Missing articleId.</p>
+    {% endif %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/brunel/Documents/symfony_blog/blog/src/Controller/AvisController.php'|file_link(0) }}">src/Controller/AvisController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/brunel/Documents/symfony_blog/blog/templates/avis/index.html.twig'|file_link(0) }}">templates/avis/index.html.twig</a></code></li>
-    </ul>
-</div>
+{% endblock %}
+
+{% block exception %}
+    {% if exception is defined %}
+        <h2>Exception Properties:</h2>
+        <pre>{{ dump(exception) }}</pre>
+    {% endif %}
 {% endblock %}

@@ -51,7 +51,7 @@
 			<div class="col-lg-12">
 				<nav class="navbar navbar-expand-lg p-0">
 					<a class="navbar-brand" href="index.html">
-						<img src="images/logo.png" alt="Logo">
+						<img src={{asset("images/logo.png")}} alt="Logo">
 					</a>
 
 					<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
@@ -155,56 +155,75 @@
             margin-top: 10px;
             font-size: 18px;
         }
+        .login-form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 50px;
+        }
+        .login-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
     </style>
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Liste des articles -->
+            {% block title %}Article index{% endblock %}
 
-{% block title %}Article index{% endblock %}
+            {% block body %}
+                <h1>Article index</h1>
 
-{% block body %}
-    <h1>Article index</h1>
+                {% if articles is not empty %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Titre</th>
+                                <th>Contenu</th>
+                                <th>Date</th>
+                                <th>Note</th>
+                                <th>Image</th>
+                                <th>Actions</th>
+                                <th>Add Review</th> <!-- Nouvelle colonne pour le bouton d'ajout d'avis -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for article in articles %}
+                                <tr>
+                                    <td>{{ article.id }}</td>
+                                    <td>{{ article.titre }}</td>
+                                    <td>{{ article.contenu }}</td>
+                                    <td>{{ article.date ? article.date|date('Y-m-d H:i:s') : '' }}</td>
+                                    <td>{{ article.note }}</td>
+                                    <td><img src="{{ article.image }}" alt="Description de l'image"></td>
+                                    <td>
+                                        <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
+                                        {% if is_granted('POST_EDIT', article) %}
+                                            <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a>
+                                        {% endif %}
+                                    </td>
+                                <td>
+                                    <a href="{{ path('app_avis_new', {'articleId': article.id}) }}">Add Review</a>
+                                </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>No records found.</p>
+                {% endif %}
 
-    {% if articles is not empty %}
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Titre</th>
-                    <th>Contenu</th>
-                    <th>Date</th>
-                    <th>Note</th>
-                    <th>Image</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for article in articles %}
-                    <tr>
-							<div class="article">
-							<img src="{{ article.image }}" alt="Description de l'image">
-							<h2>{{ article.titre }}</h2>
-							<p>{{ article.contenu }}</p>
-							<div class="date">{{ article.date ? article.date|date('Y-m-d H:i:s') : '' }}</div>
-							<div class="note">{{ article.note }}</div>
+                <a href="{{ path('app_article_new') }}">Create new</a>
+            {% endblock %}
+        </div>
+    </div>
+</div>
 
-                            <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
-                            {% if is_granted('POST_EDIT', article) %}
-                                <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a>
-                            {% endif %}
-
-						</div>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    {% else %}
-        <p>No records found.</p>
-    {% endif %}
-
-    <a href="{{ path('app_article_new') }}">Create new</a>
-
-
-{% endblock %}
-</ul>
 
 <!-- footer Start -->
 <footer class="footer">

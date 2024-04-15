@@ -13,6 +13,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Doctrine\ORM\QueryBuilder;
+
 
 #[Route('/article')]
 class ArticleController extends AbstractController
@@ -36,17 +38,19 @@ class ArticleController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             // Vérifier que le titre de l'article n'est pas nul avant de générer le slug
             if ($article->getTitle() !== null) {
-                $article->setSlug($slugger->slug($article->getTitle()));
+                $slug = $slugger->slug($article->getTitle())->lower(); // Convertir en minuscules
+                $article->setSlug($slug); // Utiliser le slug obtenu
             } else {
                 // Si le titre est null, attribuer un slug par défaut
                 $article->setSlug('article-sans-titre');
             }
-    
+        
             $entityManager->persist($article);
             $entityManager->flush();
-    
+        
             return $this->redirectToRoute('app_article_index', [], Response::HTTP_SEE_OTHER);
         }
+        
     
         return $this->render('article/new.html.twig', [
             'article' => $article,
@@ -91,6 +95,18 @@ class ArticleController extends AbstractController
         }
 
         return $this->redirectToRoute('app_article_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    
+    #[Route('/recent', name: 'app_article_recent', methods: ['GET'])]
+    public function recentArticles(ArticleRepository $articleRepository): Response
+    {
+        // Récupérer les articles triés par date de création décroissante
+        $articles = $articleRepository->findBy([], ['createdAt' => 'DESC']);
+    
+        return $this->render('article/recent.html.twig', [
+            'articles' => $articles,
+        ]);
     }
     
 }
