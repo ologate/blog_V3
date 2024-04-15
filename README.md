@@ -46,9 +46,10 @@ apt install mariadb-server mariadb-client -y
 mysql
 CREATE USER 'paul'@'%' IDENTIFIED BY 'paul';
 GRANT ALL PRIVILEGES ON * . * TO 'paul'@'%';
-FLUSH PRIVILEGES
-CREATE DATABSE blog;
-exit
+FLUSH PRIVILEGES;
+CREATE DATABASE blog;
+exitS
+
 ```
 
 ### Installation
