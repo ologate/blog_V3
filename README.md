@@ -17,11 +17,11 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
 - PHP 8.2
 - Composer 2.5.8
 - Symfony CLI
-- vagrant 
+- vagrant debian 10
 
-### VM Vagrant 
+### VM Vagrant
 
-Utiliser la VM debian/bullseye64 
+Utiliser la VM debian/bullseye64
 
 ```sh {"id":"01HVGX5GF3S9GF940YTRF3K5QX"}
 vagrant init debian/bullseye64
@@ -98,9 +98,13 @@ symfony open:local
 
 ## Use case
 
-![Alt text](Copy of UML use case diagram example(1).png)
+![Alt text](Use_case.png)
 
 ## ULM
+
+![Alt text](UML_blog.png)
+
+## Mettre des images du blog quand il sera finit ici !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 ## Démarrage
 
