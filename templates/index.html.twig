@@ -65,8 +65,7 @@
 							<li class="nav-item dropdown @@portfolio">
 								<a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Article<span class="ion-ios-arrow-down"></span></a>
 								<ul class="dropdown-menu" aria-labelledby="dropdown03">
-									<li><a class="dropdown-item @@portfolioFilter" href="{{path('app_article_index')}}">Portfolio Filter</a></li>
-									<li><a class="dropdown-item @@portfolioSingle" href="{{path('app_utilisateur_new')}}">Utilisateur</a></li>
+									<li><a class="dropdown-item @@portfolioFilter" href="{{path('app_article_index')}}">Article</a></li>
 
 									<li class="dropdown dropdown-submenu dropright">
 										<a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301" role="button"
@@ -74,44 +73,13 @@
 
 										<ul class="dropdown-menu" aria-labelledby="dropdown0301">
 											<li><a class="dropdown-item" href="{{path('app_categorie_index')}}">Categorie</a></li>
-											<li><a class="dropdown-item" href="index.html">Submenu 02</a></li>
+											<li><a class="dropdown-item" href="{{path('app_utilisateur_new')}}">Utilisateur</a></li>
 										</ul>
 									</li>
 								</ul>
 							</li>
-							<li class="nav-item @@service"><a class="nav-link" href="service.html">Service</a></li>
-							<li class="nav-item dropdown @@blog">
-								<a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="false">Blog <span class="ion-ios-arrow-down"></span></a>
-								<ul class="dropdown-menu" aria-labelledby="dropdown05">
-									<li><a class="dropdown-item @@blogGrid" href="{{path('app_login')}}">Blog Grid</a></li>
-									<li><a class="dropdown-item @@blogSingle" href="blog-single.html">Blog Single</a></li>
-									<li><a class="dropdown-item @@blogRS" href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-									<li><a class="dropdown-item @@blogLS" href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-									<li><a class="dropdown-item @@blogFW" href="blog-full-width.html">Blog Full Width</a></li>
-
-									<li class="dropdown dropdown-submenu dropleft">
-										<a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0501" role="button"
-											data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
-
-										<ul class="dropdown-menu" aria-labelledby="dropdown0501">
-											<li><a class="dropdown-item" href="index.html">Submenu 01</a></li>
-											<li><a class="dropdown-item" href="index.html">Submenu 02</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li class="nav-item dropdown @@pages">
-								<a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="false">Pages <span class="ion-ios-arrow-down"></span></a>
-								<ul class="dropdown-menu" aria-labelledby="dropdown05">
-									<li><a class="dropdown-item @@about" href="about.html">About Us</a></li>
-									<li><a class="dropdown-item @@comingSoon" href="coming-soon.html">Coming Soon</a></li>
-									<li><a class="dropdown-item @@404" href="404.html">404 Page</a></li>
-									<li><a class="dropdown-item @@faq" href="faq.html">FAQ</a></li>
-									<li><a class="dropdown-item @@pricing" href="pricing.html">Pricing Table</a></li>
-								</ul>
-							</li>
+							<li class="nav-item @@service"><a class="nav-link" href="{{path('app_projets')}}">Projet</a></li>
+              <li class="nav-item @@admin"><a class="nav-link" href="{{path('app_login')}}">Admin login</a></li>
 							<li class="nav-item active"><a class="nav-link" href="contact.html">Contact</a></li>
 						</ul>
 					</div>

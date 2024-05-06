@@ -32,14 +32,7 @@
         {% endfor %}
         </tbody>
     </table>
-    
-    {# Vérifiez si articleId est disponible #}
-    {% if articleId is defined %}
-        <a href="{{ path('app_avis_new', {'articleId': articleId}) }}">Add new review</a>
-    {% else %}
-        {# Gérer le cas où articleId est manquant #}
-        <p>Unable to generate URL for new review. Missing articleId.</p>
-    {% endif %}
+
 
 {% endblock %}
 

@@ -1,0 +1,19 @@
+{# templates/avis/show_by_article.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Avis pour l'article{{ article.id }}{% endblock %}
+
+{% block body %}
+    <h1>Avis pour l'article {{ article.id }}</h1>
+
+    {% if articleAvis is not empty %}
+        <ul>
+            {% for avis in articleAvis %}
+                <li>{{ avis.contenu }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucun avis trouvé pour cet article.</p>
+    {% endif %}
+{% endblock %}

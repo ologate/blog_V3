@@ -9,7 +9,7 @@ use App\Entity\Article;
 
 #[ORM\Entity(repositoryClass: AvisRepository::class)]
 class Avis
-{
+{   
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]

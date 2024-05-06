@@ -13,3 +13,9 @@ app_avis_new:
 projet_details:
     path: /projet_details/{projet}
     controller: App\Controller\ProjetController::details
+
+# routes.yaml
+app_avis_article_show:
+    path: '/article/{id}/avis'
+    controller: App\Controller\AvisController::showByArticle
+

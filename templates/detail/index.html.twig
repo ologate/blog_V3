@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du Projet{% endblock %}
+
+{% block body %}
+<div class="card mb-3">
+    <img src="{{ projet.owner.avatar_url }}" class="card-img-top" alt="{{ projet.name }}">
+    <div class="card-body">
+        <h5 class="card-title">{{ projet.name }}</h5>
+        <p class="card-text">{{ projet.description }}</p>
+        <a href="{{ projet.html_url }}" class="btn btn-primary">View on GitHub</a>
+    </div>
+</div>
+{% endblock %}

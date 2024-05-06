@@ -92,4 +92,16 @@ class AvisController extends AbstractController
 
         return $this->redirectToRoute('app_avis_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    #[Route("/article/{id}/avis", name:"app_avis_article_show",methods: ['GET', 'POST'])]
+
+    public function showByArticle($id, AvisRepository $avisRepository): Response
+    {
+        $articleAvis = $avisRepository->findBy(['article' => $id]);
+
+        return $this->render('avis/show_by_article.html.twig', [
+            'articleAvis' => $articleAvis,
+        ]);
+    }
 }
+
